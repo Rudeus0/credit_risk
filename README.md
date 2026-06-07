@@ -24,3 +24,12 @@ credit_risk/
 ```
 
 ---
+
+## Dataset
+
+- **Source:** German Credit Risk dataset (ppb00x/credit-risk-customers on Kaggle)
+- **Size:** 1,000 rows × 21 columns → 200 test samples
+- **Target:** `class` — good=0 (no default), bad=1 (defaulted)
+- **Class distribution:** 700 good (70%), 300 bad (30%) — imbalanced
+
+---
