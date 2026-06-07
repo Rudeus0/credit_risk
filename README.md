@@ -57,6 +57,28 @@ credit_risk/
 
 ---
 
+## Feature Engineering
+
+```python
+# Encode target from text to number
+df['class'] = df['class'].map({'good': 0, 'bad': 1})
+
+# Find all text columns automatically
+categorical_cols = df.select_dtypes(include=['object', 'str']).columns.tolist()
+if 'class' in categorical_cols:
+    categorical_cols.remove('class')
+
+# One-hot encode all categorical columns
+df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
+# Result: 8 numeric columns → 49 columns after encoding
+
+```
+
+**Why encode target before get_dummies:**
+If you run `get_dummies` before `map()`, pandas treats `class` as a categorical column and creates `class_good` and `class_bad` dummy columns — destroying the target. Always encode the target first.
+
+---
+
 ## Pipeline Flow
 
 ```
