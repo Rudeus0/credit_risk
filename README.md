@@ -46,6 +46,17 @@ credit_risk/
 
 ---
 
+# What's Different From credit_risk to titanic
+
+|  Titanic |  Credit Risk |
+|------------|----------------|
+| 2 categorical features encoded | 13 categorical features encoded |
+| Clean dataset, simple features | Mixed types, more complex encoding |
+| Target already in CSV | Target needed `.map()` conversion |
+| get_dummies on 2 columns | get_dummies on all categorical columns at once |
+
+---
+
 ## Pipeline Flow
 
 ```
