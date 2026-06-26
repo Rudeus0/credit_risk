@@ -78,6 +78,22 @@ df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
 If you run `get_dummies` before `map()`, pandas treats `class` as a categorical column and creates `class_good` and `class_bad` dummy columns — destroying the target. Always encode the target first.
 
 ---
+## Feature Importance — Top 10
+
+| Rank | Feature | Why It Matters |
+|------|---------|----------------|
+| 1 | `credit_amount` | Larger loans = higher default risk |
+| 2 | `age` | Younger applicants = less financial stability |
+| 3 | `duration` | Longer loan = more risk over time |
+| 4 | `checking_status_no checking` | No account = financial instability |
+| 5 | `installment_commitment` | High % of income to loans = stressed |
+| 6 | `checking_status_<0` | Negative balance = already struggling |
+| 7 | `residence_since` | Short residence = unstable living |
+| 8 | `credit_history_critical` | Past problems predict future ones |
+| 9 | `purpose_new car` | Car loans have specific risk profile |
+| 10 | `other_payment_plans_none` | No other commitments |
+
+---
 
 ## Pipeline Flow
 
@@ -88,5 +104,19 @@ transform_scaler()  → split 80/20 + StandardScaler
 credit_model()      → fit LogisticRegression, RandomForest, XGBoost
 evaluate_models()   → accuracy, confusion matrix, classification report, ROC AUC
 ```
+
+---
+## Confusion Matrix Explained
+
+```
+Logistic Regression:         Random Forest:
+[[126  15]                   [[132   9]
+ [ 24  35]]                   [ 31  28]]
+
+LR caught 35 defaulters.     RF caught only 28 defaulters.
+LR missed 24 defaulters.     RF missed 31 defaulters.
+```
+
+For credit risk, missing a defaulter (false negative) is more costly than flagging a good customer (false positive). Logistic Regression is better here.
 
 ---
