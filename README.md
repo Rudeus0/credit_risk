@@ -142,3 +142,23 @@ python main.py
 ```
 
 ---
+
+## Key Learnings
+
+- Always encode the target column BEFORE calling `get_dummies` — order matters
+- `select_dtypes` automatically finds all text columns — no need to name them manually
+- Imbalanced datasets (70/30) need attention — model naturally favors the majority class
+- For credit risk, recall on bad loans matters more than overall accuracy
+- On small datasets, simple models often beat complex ensemble methods
+- Kernel restart and Run All is essential when debugging pandas cell order issues
+
+---
+
+## Tech Stack
+
+- Python 3.12
+- scikit-learn — models, metrics, preprocessing
+- XGBoost — gradient boosted trees
+- pandas — data manipulation
+- NumPy — numerical operations
+- Matplotlib + Seaborn — visualisation
