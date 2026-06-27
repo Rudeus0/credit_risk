@@ -120,3 +120,18 @@ LR missed 24 defaulters.     RF missed 31 defaulters.
 For credit risk, missing a defaulter (false negative) is more costly than flagging a good customer (false positive). Logistic Regression is better here.
 
 ---
+
+## How to Run
+
+```bash
+git clone https://github.com/Rudeus0/credit_risk.git
+cd credit_risk
+
+python -m venv .venv
+.venv\Scripts\activate
+
+pip install -r requirements.txt
+python main.py
+```
+
+---
