@@ -121,6 +121,13 @@ For credit risk, missing a defaulter (false negative) is more costly than flaggi
 
 ---
 
+## Why Logistic Regression Won
+
+The German Credit dataset has 1,000 rows — relatively small. Complex models like Random Forest and XGBoost need more data to outperform simple models. On small, clean datasets with strong linear signals, Logistic Regression is often competitive.
+
+---
+
+
 ## How to Run
 
 ```bash
